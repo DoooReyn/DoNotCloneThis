@@ -1,4 +1,3 @@
-const __FILE_TO_COMMIT__ = "./FileToCommit.txt";
 const faker = require("faker");
 const fs = require("fs");
 const exec = require("child_process").exec;
@@ -16,10 +15,11 @@ class AsyncCommit {
   }
 
   content() {
-    return faker.random
-      .words(randomInt(3, 13))
-      .split(" ")
-      .join("\n");
+    return faker.lorem.sentence();
+  }
+
+  file() {
+    return "NOT_" + faker.random.uuid() + "___" + faker.random.number();
   }
 
   message() {
@@ -56,7 +56,7 @@ class AsyncCommit {
   commit() {
     --this.times;
     if (this.times >= 0) {
-      fs.writeFile(__FILE_TO_COMMIT__, this.content(), err => {
+      fs.writeFile(this.file(), this.content(), err => {
         err && console.log(err);
         !err && this.pushToHub();
       });
