@@ -6,6 +6,13 @@ function randomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+let files = fs.readdirSync("./");
+if (files.length > 49) {
+  files.forEach(filename => {
+    if (filename.startsWith("NOT_")) fs.unlinkSync(filename);
+  });
+}
+
 class AsyncCommit {
   constructor() {
     faker.seed(Date.now());
