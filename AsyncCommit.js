@@ -33,20 +33,24 @@ class AsyncCommit {
   pushToHub() {
     console.log(`第${++this.count}次提交`);
     exec(`git add ./`, (err, stdout, stderr) => {
-      exec(`git commit -am "${faker.random.words()}"`, (err, stdout, stderr) => {
-        err && console.log(stderr);
-        if (!err) {
-          console.log(stdout);
-          exec(`git push`, (err, stdout, stderr) => {
+      err && console.log(stderr);
+      exec(
+        ,
+        (err, stdout, stderr) => {
+          err && console.log(stderr);
+          if (!err) {
             console.log(stdout);
-            err && console.log(stderr);
-            setTimeout(() => {
-              this.commit();
-            }, this.waitTime());
-          });
+            exec(`git push`, (err, stdout, stderr) => {
+              console.log(stdout);
+              err && console.log(stderr);
+              setTimeout(() => {
+                this.commit();
+              }, this.waitTime());
+            });
+          }
         }
-      });
-    })
+      );
+    });
   }
 
   commit() {
