@@ -32,6 +32,7 @@ class AsyncCommit {
 
   pushToHub() {
     console.log(`第${++this.count}次提交`);
+    exec()
     exec(`git commit -am "${faker.random.words()}"`, (err, stdout, stderr) => {
       err && console.log(stderr);
       if (!err) {
