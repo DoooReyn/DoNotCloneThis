@@ -1,0 +1,25 @@
+{
+  "name": "projectpets",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tool/AsyncCommit.js",
+  "scripts": {
+    "commit": "node tool/AsyncCommit.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DoooReyn/ProjectPets.git"
+  },
+  "keywords": [
+    "commit"
+  ],
+  "author": "reyn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DoooReyn/ProjectPets/issues"
+  },
+  "homepage": "https://github.com/DoooReyn/ProjectPets#readme",
+  "dependencies": {
+    "faker": "^4.1.0"
+  }
+}
